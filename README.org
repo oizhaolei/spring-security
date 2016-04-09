@@ -1,0 +1,10 @@
+*  Server
+#+BEGIN_SRC sh
+cd spring-security/spring.security.rest.api/
+mvn tomcat:run
+#+END_SRC
+* Client
+#+BEGIN_SRC sh
+curl -i -X POST -d j_username=temporary -d j_password=temporary -c ./cookies.txt http://localhost:8080/spring.security.rest.api/j_spring_security_check
+curl -i -H "Content-Type: application/json" -X GET -b ./cookies.txt http://localhost:8080/spring.security.rest.api/api/customer
+#+END_SRC
